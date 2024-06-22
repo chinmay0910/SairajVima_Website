@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance with SairajVima 💹</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <style>
+        .nav-link {
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: #ffd900;
+        }
+
+        #cursor {
+            display: inline-block;
+            background-color: #ffd900;
+            width: 1px;
+            height: 1.5em;
+            vertical-align: bottom;
+            animation: blink 0.7s steps(2, start) infinite;
+        }
+
+        @keyframes blink {
+            to {
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <%- include('./partials/navbar.ejs'); %>
+
+        <!-- home section starts -->
+        <section class="home mt-5" id="home">
+            <div class="container mx-auto flex flex-col md:flex-row items-center justify-center px-5 md:px-10 lg:px-20">
+                <div class="content text-center md:text-left lg:w-1/2">
+                    <h3 class="text-3xl md:text-5xl font-bold mb-4 text-indigo-900">
+                        <span style="color: #ffc800;">Confused</span> About Growing Your Money?
+                    </h3>
+                    <p class="hero-h1 text-xl md:text-2xl mb-6">Let Us help You with Finanacial Planning and Wealth
+                        Management</p>
+                    <div id="container" class="mb-6" style="height: 40px;">
+                        <div id="text" class="text-lg inline"></div>
+                        <div id="cursor"></div>
+                    </div>
+                    <div class="inputSearch flex items-center w-full max-w-md md:max-w-lg lg:max-w-xl">
+                        <input id="inputTextarea" type="text" name="" cols="30" rows="1"
+                          class="border-2 border-indigo-600 p-2 sm:p-1 rounded-l-full focus:outline-none flex-grow text-sm sm:text-xs md:text-base"
+                          placeholder="Enter message to get Call from our expert...">
+                        <a href="javascript:void(0);"
+                        target="_blank"
+                          class="btn bg-indigo-600 text-white font-bold py-2 sm:py-1 px-6 sm:px-3 rounded-r-full hover:bg-yellow-400 hover:text-black transition duration-300 text-sm sm:text-xs md:text-base" onclick="sendToWhatsApp()">
+                          <span class="lg:visible hidden">Get Call</span>
+                          <i class="fas fa-arrow-circle-right ml-2"></i>
+                        </a>
+                      </div>
+                </div>
+                <div class="image lg:w-1/2 flex flex-row justify-center items-center flex-wrap">
+                    <img src="./assets/img/Home.png" alt="project" class="">
+                </div>
+            </div>
+        </section>
+        <!-- home section ends -->
+
+
+        <!-- Services section starts -->
+        <div>
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Our Financial Services</h1>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 m-8 p-0 list-none">
+                <li>
+                    <a href="#" class="relative block h-full rounded-[40px] overflow-hidden no-underline group">
+                        <img src="/assets/img/LIFE-INSURANCE.png" class="w-full h-[340px]" alt="" />
+                        <div
+                            class="absolute inset-x-0 bottom-0 z-10 bg-white rounded-[40px] transform translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
+                            <div
+                                class="relative flex items-center gap-8 p-8 bg-white rounded-t-[40px] transform -translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
+                                <div>
+                                    <h3 class="text-xl m-0 text-gray-800">Life Insurance</h3>
+                                    <span class="text-sm text-gray-500">Secure your future</span>
+                                </div>
+                            </div>
+                            <p class="px-6 pb-6 m-0 text-gray-600">Our life insurance plans provide comprehensive
+                                coverage and peace of mind for you and your loved ones. Ensure financial stability for
+                                your family in the event of unforeseen circumstances.</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="relative block h-full rounded-[40px] overflow-hidden no-underline group">
+                        <img src="/assets/img/healthInsurance.jpg" class="w-full h-[340px]" alt="" />
+                        <div
+                            class="absolute inset-x-0 bottom-0 z-10 bg-white rounded-[40px] transform translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
+                            <div
+                                class="relative flex items-center gap-8 p-8 bg-white rounded-t-[40px] transform -translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
+                                <div>
+                                    <h3 class="text-xl m-0 text-gray-800">Health Insurance</h3>
+                                    <span class="text-sm text-gray-500">Your health, our priority</span>
+                                </div>
+                            </div>
+                            <p class="px-6 pb-6 m-0 text-gray-600">Our health insurance policies cover a wide range of
+                                medical expenses, ensuring that you and your family receive the best healthcare without
+                                financial strain. Protect your health with our customized plans.</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="relative block h-full rounded-[40px] overflow-hidden no-underline group">
+                        <img src="/assets/img/mutualFund.jpg" class="w-full h-[340px]" alt="" />
+                        <div
+                            class="absolute inset-x-0 bottom-0 z-10 bg-white rounded-[40px] transform translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
+                            <div
+                                class="relative flex items-center gap-8 p-8 bg-white rounded-t-[40px] transform -translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
+                                <div>
+                                    <h3 class="text-xl m-0 text-gray-800">Mutual Funds</h3>
+                                    <span class="text-sm text-gray-500">Grow your wealth</span>
+                                </div>
+                            </div>
+                            <p class="px-6 pb-6 m-0 text-gray-600">Invest in our mutual funds to achieve your financial
+                                goals. Our diversified portfolio and expert management provide you with opportunities
+                                for growth and security for your investments.</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Services section ends -->
+
+
+
+        
+    <%- include('./partials/footer.ejs'); %>
+
+
+
+</body>
+<script src="/assets/js/texteffect.js"></script>
+<script src="/assets/js/sendMessage.js"></script>
+
+</html>
