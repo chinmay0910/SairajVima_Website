@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Quote</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('Date').setAttribute('max', today);
+        });
+    </script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navigation -->
+    <%- include('./partials/navbar.ejs'); %>
+
+    <!-- Form Container -->
+    <div class="container mx-auto p-4">
+        <% if (errors.length > 0) { %>
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <ul>
+                    <% errors.forEach(function(error) { %>
+                        <li><%= error %></li>
+                    <% }) %>
+                </ul>
+            </div>
+        <% } %>
+
+
+
+        <form method="post" action="/quotes" class="bg-white p-6 rounded-lg shadow-md">
+            <div class="mb-6">
+                <label for="Ins_product" class="block text-gray-700 font-bold mb-2">Select Product Name</label>
+                <select name="Ins_product" id="Ins_product" required class="w-full p-2 border border-gray-300 rounded">
+                    <option value="">-- Select Type Plan --</option>
+                    <option value="Comprehensive">Star Comprehensive Plan</option>
+                    <option value="Assured">Star Assured Plan</option>
+                    <option value="Arogya">Star Arogya Plan</option>
+                </select>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="mb-6">
+                <span class="block text-gray-700 font-bold mb-2">Basic Details:</span>
+                <div class="mb-4">
+                    <label for="Name" class="block text-gray-700 font-bold mb-2">Name of Person</label>
+                    <input id="Name" name="name" type="text" placeholder="Enter your Name:" class="w-full p-2 border border-gray-300 rounded">
+                </div>
+                <div class="mb-4">
+                    <label for="mobileNo" class="block text-gray-700 font-bold mb-2">Mobile No.</label>
+                    <input id="mobileNo" name="mobileNo" type="text" placeholder="Enter your Mobile No:" class="w-full p-2 border border-gray-300 rounded">
+                </div>
+                <div class="mb-4">
+                    <label for="family_Size" class="block text-gray-700 font-bold mb-2">Family Size</label>
+                    <select name="family_Size" id="family_Size" required class="w-full p-2 border border-gray-300 rounded">
+                        <option value="">SELECT SIZE</option>
+                        <option value="1A">1A</option>
+                        <option value="2A">2A</option>
+                        <option value="1A+1C">1A+1C</option>
+                        <option value="1A+2C">1A+2C</option>
+                        <option value="1A+3C">1A+3C</option>
+                        <option value="2A+1C">2A+1C</option>
+                        <option value="2A+2C">2A+2C</option>
+                        <option value="2A+3C">2A+3C</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="Date" class="block text-gray-700 font-bold mb-2">D.O.B of Eldest Member</label>
+                    <input type="date" id="Date" name="date" required class="w-full p-2 border border-gray-300 rounded">
+                </div>
+                <div class="mb-4">
+                    <label for="sumassured" class="block text-gray-700 font-bold mb-2">Sum Assured</label>
+                    <select name="sumassured" id="sumassured" required class="w-full p-2 border border-gray-300 rounded">
+                        <option value="5 Lakh">5 lakh</option>
+                        <option value="10 Lakh">10 lakh</option>
+                        <option value="15 Lakh">15 lakh</option>
+                        <option value="20 Lakh">20 lakh</option>
+                        <option value="25 Lakh">25 lakh</option>
+                        <option value="50 Lakh">50 lakh</option>
+                        <option value="75 Lakh">75 lakh</option>
+                        <option value="100 Lakh">100 lakh</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 transition duration-300" type="submit" id="Calculate" onclick="floater_fn()">Calculate</button>
+        </form>
+    </div>
+
+    <!-- Quote Results -->
+    <% if(data != null) { %> 
+        <div class="container mx-auto p-4">
+            <div class="overflow-auto bg-white p-6 rounded-lg shadow-md">
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border-b border-gray-200">Sum Assured</th>
+                            <th class="py-2 px-4 border-b border-gray-200 text-center"><%=data[0].planName%></th>
+                            <th class="py-2 px-4 border-b border-gray-200 text-center"><%=data[1].planName%></th>
+                            <th class="py-2 px-4 border-b border-gray-200 text-center"><%=data[2].planName%></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><h3>5 Lakh</h3></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[0].lacFIVE%></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[1].lacFIVE%></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[2].lacFIVE%></td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><h3>10 Lakh</h3></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[0].lacTEN%></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[1].lacTEN%></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[2].lacTEN%></td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><h3>15 Lakh</h3></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[0].lacFIFTEEN%></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[1].lacFIFTEEN%></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[2].lacFIFTEEN%></td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><h3>25 Lakh</h3></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[0].lacTWENTYFIVE%></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[1].lacTWENTYFIVE%></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[2].lacTWENTYFIVE%></td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><h3>50 Lakh</h3></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[0].lacFIFTY%></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[1].lacFIFTY%></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[2].lacFIFTY%></td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><h3>100 Lakh</h3></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[0].lacHUNDRED%></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[1].lacHUNDRED%></td>
+                            <td class="py-2 px-4 border-b border-gray-200 text-center"><%=data[2].lacHUNDRED%></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <form action="/download">
+                <button class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700 transition duration-300 mt-4" id="myBtn">Download</button>
+            </form>
+        </div>
+    <% } %>
+
+    <%- include('./partials/footer.ejs'); %>
+</body>
+</html>

@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 // Database Connection
 const connectToMongo = require('./db/db.js')
-// connectToMongo();
+connectToMongo();
 
 // Use body-parser middleware to parse JSON and URL-encoded data
 app.use(bodyParser.json());

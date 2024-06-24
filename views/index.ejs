@@ -13,6 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
     <style>
         .nav-link {
             font-weight: bold;
@@ -36,6 +37,21 @@
                 visibility: hidden;
             }
         }
+
+        /* Custom CSS for animation */
+    @keyframes upDownAnimation {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-5px); /* Adjust the distance as needed */
+        }
+    }
+
+    /* Apply the animation to the image */
+    .animated-image {
+        animation: upDownAnimation 2s ease-in-out infinite; /* Adjust duration and timing function as needed */
+    }
     </style>
 </head>
 
@@ -68,7 +84,7 @@
                       </div>
                 </div>
                 <div class="image lg:w-1/2 flex flex-row justify-center items-center flex-wrap">
-                    <img src="./assets/img/Home.png" alt="project" class="">
+                    <img src="./assets/img/Home.png" alt="project" class="animated-image">
                 </div>
             </div>
         </section>
@@ -83,9 +99,10 @@
                     <a href="/comingsoon" class="relative block h-full rounded-[40px] overflow-hidden no-underline group">
                         <img src="/assets/img/LIFE-INSURANCE.png" class="w-full h-[340px]" alt="" />
                         <div
-                            class="absolute inset-x-0 bottom-0 z-10 bg-white rounded-[40px] transform translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
+                            class="absolute inset-x-0 bottom-0 z-1 bg-white rounded-[40px] transform translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
                             <div
                                 class="relative flex items-center gap-8 p-8 bg-white rounded-t-[40px] transform -translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
+                        <img class="flex-shrink-0 w-12 h-12 rounded-full" src="/assets/img/lic.jpg" alt="" />
                                 <div>
                                     <h3 class="text-xl m-0 text-gray-800">Life Insurance</h3>
                                     <span class="text-sm text-gray-500">Secure your future</span>
@@ -98,12 +115,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/comingsoon" class="relative block h-full rounded-[40px] overflow-hidden no-underline group">
+                    <a href="/quotes" class="relative block h-full rounded-[40px] overflow-hidden no-underline group">
                         <img src="/assets/img/healthInsurance.jpg" class="w-full h-[340px]" alt="" />
                         <div
-                            class="absolute inset-x-0 bottom-0 z-10 bg-white rounded-[40px] transform translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
+                            class="absolute inset-x-0 bottom-0 z-1 bg-white rounded-[40px] transform translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
                             <div
                                 class="relative flex items-center gap-8 p-8 bg-white rounded-t-[40px] transform -translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
+                                <img class="flex-shrink-0 w-12 h-12 rounded-full" src="/assets/img/starthealth.png" alt="" />
                                 <div>
                                     <h3 class="text-xl m-0 text-gray-800">Health Insurance</h3>
                                     <span class="text-sm text-gray-500">Your health, our priority</span>
@@ -119,9 +137,10 @@
                     <a href="/comingsoon" class="relative block h-full rounded-[40px] overflow-hidden no-underline group">
                         <img src="/assets/img/mutualFund.jpg" class="w-full h-[340px]" alt="" />
                         <div
-                            class="absolute inset-x-0 bottom-0 z-10 bg-white rounded-[40px] transform translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
+                            class="absolute inset-x-0 bottom-0 z-1 bg-white rounded-[40px] transform translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
                             <div
                                 class="relative flex items-center gap-8 p-8 bg-white rounded-t-[40px] transform -translate-y-full transition-transform duration-200 ease-in-out group-hover:translate-y-0">
+                                <img class="flex-shrink-0 w-12 h-12 rounded-full" src="/assets/img/amfi.jpg" alt="" />
                                 <div>
                                     <h3 class="text-xl m-0 text-gray-800">Mutual Funds</h3>
                                     <span class="text-sm text-gray-500">Grow your wealth</span>

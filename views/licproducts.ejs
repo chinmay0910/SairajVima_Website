@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Optional: Custom styles */
+        /* You can add your own custom styles here */
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    
+    <!-- Navigation -->
+    <%- include('./partials/navbar.ejs'); %>
+
+    <h1 class="text-5xl text-center text-extrabold underline p-8">Product Categories</h1>
+    <div class="max-w-6xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-4 p-8">
+
+        <!-- Product Card 2 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <img src="/assets/img/LIC/sipplan.png" alt="Product 2" class="w-full h-48 object-cover object-center">
+            <div class="p-4">
+                <a href="https://licindia.in/documents/20121/104176/LIC-s-SIIP-Brochure_9-inch-x-8-inch_Eng_Single.pdf/24215dff-7267-e0f4-867e-911b514a9d33?t=1668765646031" class="block text-gray-800 font-bold text-lg mb-2 hover:text-blue-600">SIIP Plan</a>
+                <button class="block text-gray-500 text-sm hover:text-blue-600" onclick="createWhatsAppLink('SIIP PLAN')">Contact Us</button>
+            </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <img src="/assets/img/LIC/retirement.jpg" alt="Product 3" class="w-full h-48 object-cover object-center">
+            <div class="p-4">
+                <a href="https://licindia.in/documents/20121/101355/LIC-s-Jeevan-Akshay-VII-Sales-Brochure+%281%29.pdf/c115cc80-aeae-d270-055f-af69871f66a5?t=1685645547713" class="block text-gray-800 font-bold text-lg mb-2 hover:text-blue-600">Retirement Plan</a>
+                <button class="block text-gray-500 text-sm hover:text-blue-600" onclick="createWhatsAppLink('Retirement Plan')">Contact Us</button>
+            </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <img src="/assets/img/LIC/tech-term.jpg" alt="Product 3" class="w-full h-48 object-cover object-center">
+            <div class="p-4">
+                <a href="https://licindia.in/documents/20121/290753/LIC_New-Tech-Term_Sales-Brochure.pdf/485808ad-a871-ed8c-f29b-d558b9386b7d?t=1675155744224" class="block text-gray-800 font-bold text-lg mb-2 hover:text-blue-600">Term Plan</a>
+                <button class="block text-gray-500 text-sm hover:text-blue-600" onclick="createWhatsAppLink('Term Plan')">Contact Us</button>
+            </div>
+        </div>
+
+         <!-- Product Card 1 -->
+         <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <img src="/assets/img/LIC/childplan.jpeg" alt="Product 1" class="w-full h-48 object-cover object-center">
+            <div class="p-4">
+                <a href="https://licindia.in/documents/20121/377150/Sales-Brochure_185.pdf/6fa9c3d6-8e3e-5df3-9f47-dc0da5a07b91?t=1677655453145" class="block text-gray-800 font-bold text-lg mb-2 hover:text-blue-600">Child Plan</a>
+                <button class="block text-gray-500 text-sm hover:text-blue-600" onclick="createWhatsAppLink('childplan')">Contact Us</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="/assets/js/sendCustomMessage.js"></script>
+</html>
